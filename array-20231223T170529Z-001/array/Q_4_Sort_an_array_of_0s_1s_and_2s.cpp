@@ -1,0 +1,73 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
+
+// } Driver Code Ends
+class Solution
+{
+    public:
+    void sort012(int a[], int n)
+    {
+        // code here 
+        int zerocount = 0;
+        int onecount = 0;
+        int twocount = 0;
+        for(int i = 0; i<n; i++){
+            if(a[i] == 0){
+                zerocount++;
+            }
+            else if(a[i] == 1){
+                onecount++;
+            }
+            else{
+                twocount++;
+            }
+        }
+        int m = 0;
+            while(zerocount && m<n){
+                a[m] = 0;
+                m++;
+                zerocount--;
+            }
+            while(onecount && m<n){
+                a[m] = 1;
+                m++;
+                onecount--;
+            }
+            while(twocount && m<n){
+                a[m] = 2;
+                m++;
+                twocount--;
+            }
+    }
+    
+};
+
+//{ Driver Code Starts.
+int main() {
+
+    int t;
+    cin >> t;
+
+    while(t--){
+        int n;
+        cin >>n;
+        int a[n];
+        for(int i=0;i<n;i++){
+            cin >> a[i];
+        }
+
+        Solution ob;
+        ob.sort012(a, n);
+
+        for(int i=0;i<n;i++){
+            cout << a[i]  << " ";
+        }
+
+        cout << endl;
+        
+        
+    }
+    return 0;
+}
